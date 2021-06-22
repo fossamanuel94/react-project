@@ -3,7 +3,7 @@ import Login from "./users/Login";
 import Navbar from "./Navbar";
 import Registro from "./users/Registro";
 import CreatePosts from "./posts/CreatePosts";
-import PostsList from "./PostsList";
+import PostsList from "./posts/PostsList";
 import SelectedPost from "./posts/SelectedPost";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -12,9 +12,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
     <Router>
-      <Navbar></Navbar>
-      <div className="jumbotron jumbotron-fluid w-75">
-        <div className="container w-75">         
+      <div className="row">
+        <div className="col">
+          <Navbar></Navbar>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-2"></div>
+      <div className="col-8">
+      <div className="jumbotron jumbotron-fluid">
+        <div className="container">         
           <Switch>
             <Route path="/post/:id">
               <SelectedPost></SelectedPost>
@@ -33,6 +40,12 @@ function App() {
             </Route>
           </Switch>
         </div>
+      </div>
+      </div>
+      <div className="col-2"></div>
+      </div>
+      <div className="row">
+        <div className="col"></div>
       </div>
     </Router>
   );

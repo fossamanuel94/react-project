@@ -7,7 +7,7 @@ export default function Posts() {
     postTitle: "",
     postImage: "",
     postDesc: "",
-    postCateg:""
+    postCateg:1
   });
 
   const categorieSelect = (categorie) =>{
@@ -16,12 +16,14 @@ export default function Posts() {
 
   const createPost = (data) => {
     
+      const {post_title, post_image, post_desc, post_categ} = data.postSended
       return axios.post(
         "http://localhost:8080/add-post",
         {
-          post_title: data.postSended.post_title,
-          post_image: data.postSended.post_image,
-          post_desc: data.postSended.post_desc,
+          post_title,
+          post_image,
+          post_desc,
+          post_categ
         },
         {
           headers: { Authorization: "Bearer " + data.token },
@@ -45,6 +47,7 @@ export default function Posts() {
         post_title: post.postTitle,
         post_image: post.postImage,
         post_desc: post.postDesc,
+        post_categ: post.postCateg
       },
       token: parsedTokens.tokenA,
     }

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { GoThumbsdown, GoThumbsup } from "react-icons/go";
+import moment from 'moment';
 
 export default function Post(props) {
   //console.log(props)
@@ -10,8 +11,7 @@ export default function Post(props) {
         desc : props.post.post_desc,
         image : props.post.post_image
     })*/
-
-  //console.log(post)
+    
 
   return (
     <div className="container">
@@ -32,11 +32,11 @@ export default function Post(props) {
           </Link>
           <div className="row">
             <div className="col-3">
-              <h6 className="m-1">by: Manolo1094</h6>
+              <h6 className="m-1">by: {props.post.user_nickname}</h6>
             </div>
             <div className="col-1"></div>
             <div className="col-3 m-1">
-              <h6>hace 1 hora</h6>
+              <h6>{moment(props.post.post_date).startOf().fromNow()}</h6>
             </div>
             <div className="row border border-success rounded-pill">
               <div className="col-1 m-1">
@@ -50,6 +50,11 @@ export default function Post(props) {
                 <GoThumbsdown color="red"></GoThumbsdown>
               </div>
               <div className="col-1 m-1">9</div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-4 m-1">
+              in: {props.post.categorie}
             </div>
           </div>
         </div>

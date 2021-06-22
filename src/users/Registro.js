@@ -6,7 +6,8 @@ export default function Registro() {
     const [user, setUser] = useState({
         user_name:"",
         user_email:"",
-        user_password:""
+        user_password:"",
+        user_nickname:""
     });
 
     const handleSubmit = (e)=>{
@@ -17,21 +18,23 @@ export default function Registro() {
             data:{
                 user_name:user.user_name,
                 user_email:user.user_email,
-                user_password:user.user_password
+                user_password:user.user_password,
+                user_nickname:user.user_nickname
             }
         }).then((res)=>{
             console.log(res)
             setUser({
                 user_name:"",
                 user_email:"",
-                user_password:""
+                user_password:"",
+                user_nickname:""
             })
         })
         console.log(user);
     }
 
     return (
-        <div className="container jumbotron w-25 shadow p-3 mb-5 bg-white rounded border border-success">
+        <div className="container jumbotron w-50 shadow p-3 mb-5 bg-white rounded border border-success">
         <form onSubmit={handleSubmit}>
         <div className="form-group">
             <label htmlFor="userName">Nombre</label>
@@ -59,6 +62,18 @@ export default function Registro() {
             ></input>
           </div>
           <div className="form-group">
+            <label htmlFor="userNick">Nickname</label>
+            <input
+              type="text"
+              className="form-control"
+              id="userNick"
+              name="userNick"
+              placeholder="Nickname"
+              value={user.user_nickname}
+              onChange={(e)=> setUser({...user, user_nickname:e.target.value})}
+            ></input>
+          </div>
+          <div className="form-group">
             <label htmlFor="userPassword">Password</label>
             <input
               type="password"
@@ -71,7 +86,7 @@ export default function Registro() {
             ></input>
             <br></br>
             <button type="submit" className="btn btn-outline-success btn-block">
-              Registro
+              Crear Cuenta
             </button>
           </div>
         </form>
