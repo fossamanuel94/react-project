@@ -27,12 +27,11 @@ export default function Navbar() {
 
   return (
     <div>
-      <nav className="navbar navbar-dark bg-primary">
+      <nav className="navbar navbar-dark bg-dark">
         <div className="container-fluid">
           <a className="navbar-brand" href="http://localhost:3000">
             Pelados
           </a>
-          <a className="nav-link dropdown-toggle bg-dark rounded">Categorias</a>
           <ul className="nav navbar-nav">
             <li className="nav-item">
               {isLoged ? (

@@ -17,6 +17,7 @@ export default function Post(props) {
       <div className="card mt-5 ml-5 bg-dark" style={{width: '18rem'}}>
         <img src={props.post.post_image} className="card-img-top" height="180" width="286"></img>
         <div className="card-body">
+          <p className="card-text" style={{color:'green'}}>{props.post.categorie}</p>
           <Link to={`/post/${props.post.id_post}`} style={{color: 'white'}}>
             <h5 className="card-title">{props.post.post_title}</h5>
           </Link>

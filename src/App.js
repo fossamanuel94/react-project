@@ -5,7 +5,8 @@ import Registro from "./users/Registro";
 import CreatePosts from "./posts/CreatePosts";
 import PostsList from "./posts/PostsList";
 import SelectedPost from "./posts/SelectedPost";
-import Carousel from './Carousel'
+import CategoriePostList from './CategoriePostList'
+import SideBar from './SideBar';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 //import { useEffect, useState } from 'react';
@@ -19,10 +20,12 @@ function App() {
         </div>
       </div>
       <div className="row">
-        <div className="col-1"></div>
+        <div className="col-2">
+          <SideBar></SideBar>
+        </div>
       <div className="col-10">
       <div className="jumbotron jumbotron-fluid bg-white">
-        <div className="container">        
+        <div className="container"> 
           <Switch>
             <Route path="/post/:id">
               <SelectedPost></SelectedPost>
@@ -39,11 +42,13 @@ function App() {
             <Route path="/new-post">
               <CreatePosts></CreatePosts>
             </Route>
+            <Route path="/categorie-post/:id">
+              <CategoriePostList></CategoriePostList>
+            </Route>
           </Switch>
         </div>
       </div>
       </div>
-      <div className="col-1"></div>
       </div>
       <div className="row">
         <div className="col"></div>
