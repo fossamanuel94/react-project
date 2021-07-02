@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import Post from "./posts/Post";
+import Post from "./Post";
 
 export default function CategoriePostList() {
   const { id } = useParams();

@@ -5,8 +5,8 @@ import Registro from "./users/Registro";
 import CreatePosts from "./posts/CreatePosts";
 import PostsList from "./posts/PostsList";
 import SelectedPost from "./posts/SelectedPost";
-import CategoriePostList from './CategoriePostList'
-import SideBar from './SideBar';
+import CategoriePostList from './posts/CategoriePostList'
+import SideBar from './sidebar/SideBar';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 //import { useEffect, useState } from 'react';

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CategorieSelect from "./posts/CategorieSelect";
+import "./App.css"
 
 export default function Navbar() {
   const [name, setName] = useState("");

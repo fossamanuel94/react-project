@@ -38,6 +38,22 @@
   color: white;
 }
 
+.x-small {
+  font-size: x-small;
+}
+
+.small {
+  font-size: small;
+}
+
+.space {
+  word-break: break-all;
+}
+
+.h-center {
+  justify-content: center;
+}
+
 .list-group-item-mine .list-group-item {
   background-color: #343a40;
 }
