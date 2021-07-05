@@ -1,30 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import {userContext} from './App'
 import { Link } from "react-router-dom";
 import CategorieSelect from "./posts/CategorieSelect";
 import "./App.css"
 
 export default function Navbar() {
-  const [name, setName] = useState("");
-  const [isLoged, setIsLoged] = useState(false);
 
-  useEffect(() => {
+  const {userState, setUserState} = useContext(userContext)
+  const [name, setName] = useState("");
+
+  useEffect(()=>{
     const nameSession = sessionStorage.getItem("Name");
-    if (nameSession === null) {
-      setIsLoged(false);
-      console.log("Inicie Sesion");
-    } else {
-      setIsLoged(true);
-      console.log("Sesion Iniciada");
+    if(nameSession === null){
+      setUserState(false)
+    }else{
+      setUserState(true)
       setName(JSON.parse(nameSession));
     }
-  }, []);
+
+  },[userState])
 
   const logOut = (e) => {
     e.preventDefault();
     sessionStorage.removeItem("Name");
     sessionStorage.removeItem("Tokens");
-    setIsLoged(false);
+    setUserState(false);
   };
+
+
 
   return (
     <div>
@@ -35,7 +38,7 @@ export default function Navbar() {
           </a>
           <ul className="nav navbar-nav">
             <li className="nav-item">
-              {isLoged ? (
+              {userState ? (
                 <Link to="/new-post">
                   <button className="btn btn-success ml-auto" type="submit">
                     + Crear Post
@@ -46,7 +49,7 @@ export default function Navbar() {
           </ul>
           <ul className="nav navbar-nav navbar-right">
             <li className="nav-item">
-              {!isLoged ? (
+              {!userState ? (
                 <Link to="/login">
                   <button className="btn btn-success ml-auto" type="submit">
                     Iniciar Sesion
@@ -61,7 +64,7 @@ export default function Navbar() {
                   Cerrar Sesion
                 </button>
               )}
-              {!isLoged ? (
+              {!userState ? (
                 <Link to="/sign-in">
                   <button
                     className="btn btn-sm btn-primary ml-auto"
@@ -71,7 +74,7 @@ export default function Navbar() {
                   </button>
                 </Link>
               ) : (
-                <button className="btn btn-sm btn-outline-dark" type="submit">
+                <button className="btn btn-sm btn-outline-light" type="submit">
                   {name}
                 </button>
               )}

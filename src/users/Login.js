@@ -1,10 +1,13 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {useHistory} from "react-router-dom";
+import {userContext} from '../App'
 //import { isElementOfType } from "react-dom/test-utils";
 
 export default function Login() {
 
+  //USECONTEXT ACA!!!!!!!!!!!!!!!
+  const {userState, setUserState} = useContext(userContext)
   const history = useHistory();
   const [isLoged, setIsLoged] = useState(false)
   const [userLog, setUserLog] = useState({
@@ -47,7 +50,7 @@ export default function Login() {
         user_email: "",
         user_pw: "",
       });
-      setIsLoged(!isLoged)
+      setUserState(true)
     }
     const sessionTokens = sessionStorage.getItem("Tokens")
     console.log(JSON.parse(sessionTokens))

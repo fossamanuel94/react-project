@@ -30,6 +30,7 @@
 
 .side-bar {
   background-color: #343a40;
+  top: auto;
   height: 100%;
   width: 100%;
 }

@@ -9,10 +9,17 @@ import CategoriePostList from './posts/CategoriePostList'
 import SideBar from './sidebar/SideBar';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-//import { useEffect, useState } from 'react';
+import React, { createContext, useState } from 'react';
+
+export const userContext = createContext(null)
+
 
 function App() {
+
+  const [userState, setUserState] = useState(null)
+
   return (
+    <userContext.Provider value={{userState, setUserState}}>
     <Router>
       <div className="row">
         <div className="col">
@@ -54,6 +61,7 @@ function App() {
         <div className="col"></div>
       </div>
     </Router>
+    </userContext.Provider>
   );
 }
 
