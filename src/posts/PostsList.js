@@ -1,10 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import React from "react";
-import Card from '../Card'
 import Post from "./Post";
-import { Link } from "react-router-dom";
-import { parseTwoDigitYear } from "moment";
 
 export default function PostsList() {
   const [posts, setPosts] = useState([]);

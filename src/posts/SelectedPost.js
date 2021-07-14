@@ -10,7 +10,7 @@ import "../App.css"
 export default function SelectedPost() {
   const { id } = useParams();
   const [post, setPost] = useState({});
-  const {id_post,post_title,post_subtitle,post_desc,post_image,post_date,user_nickname,categorie} =post;
+  const {post_title,post_subtitle,post_desc,post_image,post_date,user_nickname,categorie} =post;
 
   const ReturnPost = (id) => {
     return axios.get(`http://localhost:8080/post/${id}`);
@@ -32,7 +32,7 @@ export default function SelectedPost() {
             <h1><u>{post_title}</u></h1><br></br>
             <h4>{post_subtitle}</h4>
             <hr></hr>
-            <img src={post_image} className="img-fluid"></img>
+            <img src={post_image} alt="..." className="img-fluid"></img>
             <hr></hr>
             <div className="row justify-content-center border-right">
               <p className="col col-3">{moment(post_date).format("l")}</p>
