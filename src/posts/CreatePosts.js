@@ -1,8 +1,9 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import CategorieSelect from "./CategorieSelect";
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import parse from "html-react-parser";
 
 export default function Posts() {
   const [post, setPost] = useState({
@@ -17,8 +18,14 @@ export default function Posts() {
     setPost({ ...post, postCateg: categorie });
   };
 
+  const handleEditor = (e, editor) => {
+    const data = editor.getData();
+    setPost({ ...post, postDesc: data });
+  };
+
   const createPost = (data) => {
-    const { post_title, post_image, post_desc, post_categ, post_subtitle } = data.postSended;
+    const { post_title, post_image, post_desc, post_categ, post_subtitle } =
+      data.postSended;
     return axios.post(
       "http://localhost:8080/add-post",
       {
@@ -86,31 +93,50 @@ export default function Posts() {
   }, []);
 
   return (
-    <form className="container-create-post" onSubmit={handleSubmit}>
-      <input 
-        type="text" 
-        className="input-form" 
-        placeholder="Titulo"
-        value={post.postTitle}
-        onChange={(e) => setPost({ ...post, postTitle: e.target.value })}
-      />
-      <input 
-        type="text" 
-        className="input-form" 
-        placeholder="Subtitulo"
-        value={post.postSubtitle}
-        onChange={(e) => setPost({ ...post, postSubtitle: e.target.value })}
-      />
-      <input 
-        type="text" 
-        className="input-form" 
-        placeholder="Imagen"
-        value={post.postImage}
-        onChange={(e) => setPost({ ...post, postImage: e.target.value })}
-      />
-      <CategorieSelect selectCateg={categorieSelect}></CategorieSelect>
-      <CKEditor editor={ClassicEditor}></CKEditor>
-    </form>
+    <>
+      <CKEditor
+        editor={ClassicEditor}
+        onChange={handleEditor}
+        config={{
+          toolbar: [
+            "bold",
+            "italic",
+            "link",
+            "undo",
+            "redo",
+            "numberedList",
+            "bulletedList",
+            "blockQuote"
+          ],
+        }}
+      ></CKEditor>
+      {parse(post.postDesc)}
+      <form className="container-create-post" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          className="input-form"
+          placeholder="Titulo"
+          value={post.postTitle}
+          onChange={(e) => setPost({ ...post, postTitle: e.target.value })}
+        />
+        <input
+          type="text"
+          className="input-form"
+          placeholder="Subtitulo"
+          value={post.postSubtitle}
+          onChange={(e) => setPost({ ...post, postSubtitle: e.target.value })}
+        />
+        <input
+          type="text"
+          className="input-form"
+          placeholder="Imagen"
+          value={post.postImage}
+          onChange={(e) => setPost({ ...post, postImage: e.target.value })}
+        />
+        <CategorieSelect selectCateg={categorieSelect}></CategorieSelect>
+        <button type="submit" className="btn-form">Crear Post</button>
+      </form>
+    </>
   );
 }
 
