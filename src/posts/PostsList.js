@@ -21,13 +21,15 @@ export default function PostsList() {
   //console.log(posts)
 
   return (
-      <div className="row justify-content-center">
+    <div class="container-card">
+      <div class="row-card">
           {posts.map((post) => {
           return (
               <Post key={post.id_post} post={post}></Post> 
           );
         })}
-        </div>
+      </div>
+    </div>
       
   );
 }

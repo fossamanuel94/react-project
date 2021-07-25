@@ -12,10 +12,10 @@ export default function Login() {
     user_email: "",
     user_pw: "",
   });
-  const [inputEmailStyle, setInputEmailStyle] = useState("form-control");
-  const [inputPwStyle, setInputPwStyle] = useState("form-control");
-  const [phEmail, setPhEmail] = useState("");
-  const [phPass, setPhPass] = useState("");
+  const [inputEmailStyle, setInputEmailStyle] = useState("input-form");
+  const [inputPwStyle, setInputPwStyle] = useState("input-form");
+  const [phEmail, setPhEmail] = useState("Email");
+  const [phPass, setPhPass] = useState("Password");
   const [alertState, setAlertState] = useState(true);
 
   const login = (user) => {
@@ -28,11 +28,11 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (userLog.user_email === "") {
-      setInputEmailStyle("form-control is-invalid");
+      setInputEmailStyle("input-form invalid");
       setPhEmail("Complete el campo");
     }
     if (userLog.user_pw === "") {
-      setInputPwStyle("form-control is-invalid");
+      setInputPwStyle("input-form invalid");
       setPhPass("Complete el campo");
     } else {
       const user = {
@@ -71,7 +71,43 @@ export default function Login() {
   };
 
   return (
-    <div className="container jumbotron w-25 shadow p-3 mb-5 bg-white rounded border border-primary">
+    <form className="container-login" onSubmit={handleSubmit}>
+      <p className="title-form">Login</p>
+      {!alertState ? (
+          <div
+            className="alert-form"
+          >Email o Contrasena incorrecto
+          </div>
+        ) : null}
+      <input 
+        type="email" 
+        className={inputEmailStyle}
+        placeholder={phEmail}
+        value={userLog.user_email}
+        onChange={(e) =>
+          setUserLog({ ...userLog, user_email: e.target.value })
+        }
+        onFocus={() => setInputEmailStyle(("input-form"), setAlertState(true))}
+      />
+      <input 
+        type="password" 
+        className={inputPwStyle} 
+        placeholder={phPass}
+        value={userLog.user_pw}
+        onChange={(e) =>
+        setUserLog({ ...userLog, user_pw: e.target.value })
+        }
+        onFocus={() => setInputPwStyle(("input-form"),setAlertState(true))}
+      />
+      <button type="submit" className="btn-form">Login</button>
+      <a href="#">No estas registrado? Click aca!</a>
+    </form>
+  );
+
+}
+
+/*
+<div className="container jumbotron w-25 shadow p-3 mb-5 bg-white rounded border border-primary">
       <form onSubmit={handleSubmit}>
         {!alertState ? (
           <div
@@ -117,6 +153,4 @@ export default function Login() {
           </button>
         </div>
       </form>
-    </div>
-  );
-}
+    </div> */

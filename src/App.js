@@ -27,10 +27,7 @@ function App() {
         </div>
       </div>
       <div className="row">
-        <div className="col-2">
-          <SideBar></SideBar>
-        </div>
-      <div className="col-10">
+      <div className="col">
       <div className="jumbotron jumbotron-fluid bg-white">
         <div className="container"> 
           <Switch>

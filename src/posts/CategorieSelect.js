@@ -23,7 +23,7 @@ export default function CategorieSelect(props) {
     },[categorie])
 
     return (
-        <select className="form-select from-select-lg mb-3" aria-label=".form-select-sm example" onChange={(e)=>{
+        <select className="categorie-select" onChange={(e)=>{
             setCategorie(e.target.value)}}>
             {categories.map((categorie)=>{
                 return(

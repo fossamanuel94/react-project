@@ -15,6 +15,27 @@ export default function ComentsList(props) {
     }, [])
 
     return (
+        <>
+            {comments.map(comment=>{
+                return(
+                    <div class="comment-container">
+                        <div class="comment-user-box">
+                            <img class="comment-user-img" src="https://images.assetsdelivery.com/thumbnails/thesomeday123/thesomeday1231709/thesomeday123170900021.jpg"/>
+                            <p class="comment-user-name">{comment.user_nickname}</p>
+                            <p class="comment-date">{moment(comment.comment_date).format('l')}</p>
+                        </div>
+                        <p class="comment-content">{comment.comment}</p>
+                    </div>
+                )
+            })}
+        </>
+    )
+}
+
+
+
+/*                       
+
         <ul className='list-group list-group-flush mt-2'>
             {comments.map(comment=>{
                 return(
@@ -32,9 +53,7 @@ export default function ComentsList(props) {
                 )
             })}
         </ul>
-    )
-}
 
-/*                       {comment.user_nickname}
-                        {comment.comment}
-                        {moment(comment.comment_date).startOf().fromNow()} */
+    {comment.user_nickname}
+    {comment.comment}
+    {moment(comment.comment_date).startOf().fromNow()} */

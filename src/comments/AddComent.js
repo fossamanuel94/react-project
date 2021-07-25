@@ -3,13 +3,13 @@ import axios from 'axios';
 
 export default function AddComent({id}) {
 
-    const [coment, setComent] = useState("");
+    const [comment, setComment] = useState("");
 
     const sendComment = (token) =>{
       return axios.post("http://localhost:8080/add-comment",
       {
         id_post: id,
-        comment: coment
+        comment: comment
       },
       {
         headers: {authorization: "Bearer " + token}
@@ -21,11 +21,11 @@ export default function AddComent({id}) {
       return axios.post("http://localhost:8080/token", { token: tokenR });
     };
 
-    const handleSubmit = async (e)=>{
+    const commentSubmit = async (e)=>{
       e.preventDefault()
       const tokens = sessionStorage.getItem("Tokens");
       const parsedTokens = JSON.parse(tokens);
-      if(coment===""){
+      if(comment===""){
         console.log("Completar el campo")
       }
       if(parsedTokens===null){
@@ -38,12 +38,24 @@ export default function AddComent({id}) {
           const newResult = await sendComment(newToken.data.tokenA)
         }
       }
-      setComent("")
+      setComment("")
     }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <form onSubmit={commentSubmit}>
+      <textarea 
+        class="comment-txt" 
+        placeholder="Comenta!"
+        value={comment}
+        onChange={(e) => setComment(e.target.value)}
+        ></textarea>
+      <button type="submit" class="comment-btn">Comentar</button>
+    </form>
+  );
+}
+
+
+/* <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="Comentario"></label>
           <textarea
@@ -58,7 +70,4 @@ export default function AddComent({id}) {
         <button type="submit" className="btn btn-outline-success btn-block">
           Comentar
         </button>
-      </form>
-    </div>
-  );
-}
+      </form> */
