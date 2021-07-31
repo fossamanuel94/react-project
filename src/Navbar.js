@@ -1,13 +1,14 @@
 import React, { useEffect, useState, useContext } from "react";
 import {userContext} from './App'
 import { Link } from "react-router-dom";
-import CategorieSelect from "./posts/CategorieSelect";
 import "./App.css"
+import listSB from "./sidebar/SideBarList";
 
 export default function Navbar() {
 
   const {userState, setUserState} = useContext(userContext)
   const [name, setName] = useState("");
+  const [buttonState, setButtonState] = useState(false)
 
   useEffect(()=>{
     const nameSession = sessionStorage.getItem("Name");
@@ -30,6 +31,56 @@ export default function Navbar() {
 
 
   return (
+    <div className="m-navbar">
+        <div className="container-nav">
+            <div className="container-title">
+              <button 
+                className="nav-button" 
+                onClick={()=>{setButtonState(!buttonState)}}/>
+              <Link className="nav-title" to="/">PELADOS</Link>
+            </div>
+            <ul className="nav-ul" id={!buttonState ? "" : "hidden"}>  
+                {listSB.map(categorie=>{
+                  const {id_categorie, categorie_name} = categorie;
+                  return(
+                    <Link 
+                      className="nav-categorie" 
+                      to={`/categorie-post/${id_categorie}`} 
+                      key={id_categorie} 
+                      onClick={()=>{setButtonState(false)}}>
+                        <li className="nav-li">{categorie_name}</li>
+                    </Link>
+                  )
+                })}
+                {
+                  !userState ? (
+                    <><Link 
+                      className="nav-categorie" 
+                      to="/login" 
+                      onClick={()=>{setButtonState(false)}}>
+                        <li className="nav-user">Login</li>
+                    </Link>
+                    <Link 
+                      className="nav-categorie" 
+                      to="/sign-in" 
+                      onClick={()=>{setButtonState(false)}}>
+                        <li className="nav-user">Registrate</li>
+                    </Link></>
+                  ) : (
+                    <>
+                      <li className="nav-user" onClick={logOut}>Logout</li>
+                      <li className="nav-user">{name}</li>
+                    </>
+                  )
+                }
+            </ul>
+        </div>
+    </div>
+  );
+}
+
+/*    
+
     <div>
       <nav className="navbar navbar-dark bg-dark">
         <div className="container-fluid">
@@ -83,5 +134,5 @@ export default function Navbar() {
         </div>
       </nav>
     </div>
-  );
-}
+
+    */

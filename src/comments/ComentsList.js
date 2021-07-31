@@ -18,13 +18,13 @@ export default function ComentsList(props) {
         <>
             {comments.map(comment=>{
                 return(
-                    <div class="comment-container">
-                        <div class="comment-user-box">
-                            <img class="comment-user-img" src="https://images.assetsdelivery.com/thumbnails/thesomeday123/thesomeday1231709/thesomeday123170900021.jpg"/>
-                            <p class="comment-user-name">{comment.user_nickname}</p>
-                            <p class="comment-date">{moment(comment.comment_date).format('l')}</p>
+                    <div className="comment-container" key={comment.id_comment}>
+                        <div className="comment-user-box">
+                            <img className="comment-user-img" src="https://images.assetsdelivery.com/thumbnails/thesomeday123/thesomeday1231709/thesomeday123170900021.jpg"/>
+                            <p className="comment-user-name">{comment.user_nickname}</p>
+                            <p className="comment-date">{moment(comment.comment_date).format('l')}</p>
                         </div>
-                        <p class="comment-content">{comment.comment}</p>
+                        <p className="comment-content">{comment.comment}</p>
                     </div>
                 )
             })}

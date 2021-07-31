@@ -1,13 +1,15 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
 import { useParams, Link } from "react-router-dom";
 import ComentsList from "../comments/ComentsList";
 import AddComent from "../comments/AddComent";
 import Card from "../Card";
 import moment from "moment";
+import htmlParser from 'html-react-parser'
 import "../App.css";
 
 export default function SelectedPost() {
+
   const { id } = useParams();
   const [post, setPost] = useState({});
   const {
@@ -22,7 +24,7 @@ export default function SelectedPost() {
   } = post;
 
   const ReturnPost = (id) => {
-    return axios.get(`http://localhost:8080/post/${id}`);
+    return axios.get(`http://localhost:8080/posts/post/${id}`);
   };
 
   useEffect(() => {
@@ -34,26 +36,26 @@ export default function SelectedPost() {
   }, []);
 
   return (
-    <div class="container-post">
+    <div className="container-post">
       <Link to={`/categorie-post/${id_categorie}`}>
-        <p class="categorie-post">{categorie}</p>
+        <p className="categorie-post">{categorie}</p>
       </Link>
-      <h1 class="title-post">
+      <h1 className="title-post">
         {post_title}
       </h1>
-      <div class="data-post-container">
-        <p class="data-post">{user_nickname}</p>
-        <p class="data-post">{moment(post_date).format("l")}</p>
+      <div className="data-post-container">
+        <p className="data-post">{user_nickname}</p>
+        <p className="data-post">{moment(post_date).format("l")}</p>
       </div>
-      <h3 class="subtitle-post">{post_subtitle}</h3>
+      <h3 className="subtitle-post">{post_subtitle}</h3>
       <img
         src={post_image}
-        class="img-post"
+        className="img-post"
       />
-      <p class="content-post">{post_desc}</p>
+      <div className="content-post">{htmlParser(`${post_desc}`)}</div>
       <hr></hr>
-        <h2 class="comments-title">Comentarios</h2>
-        <div class="comment-list">
+        <h2 className="comments-title">Comentarios</h2>
+        <div className="comment-list">
           <AddComent id={id}></AddComent> 
           <ComentsList id={id}></ComentsList>       
         </div>

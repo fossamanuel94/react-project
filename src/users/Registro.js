@@ -58,7 +58,7 @@ export default function Registro() {
       const {user_name, user_email, user_password, user_nickname} = data
       return axios({
         method:'post',
-        url:'http://localhost:8080/add-user',
+        url:'http://localhost:8080/users/add-user',
         data:{
             user_name,
             user_email,
@@ -82,7 +82,7 @@ export default function Registro() {
       //console.log(email)
       if(email!==""){
       const res = await axios.get(
-        `http://localhost:8080/email-validation/${email}`
+        `http://localhost:8080/users/email-validation/${email}`
       )
       console.log(res.data)
       if(res.data===""){
@@ -96,7 +96,7 @@ export default function Registro() {
       //console.log(email)
       if(nick!==""){
       const res = await axios.get(
-        `http://localhost:8080/nick-validation/${nick}`
+        `http://localhost:8080/users/nick-validation/${nick}`
       )
       console.log(res.data)
       if(res.data===""){

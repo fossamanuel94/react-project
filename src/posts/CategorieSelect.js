@@ -8,7 +8,7 @@ export default function CategorieSelect(props) {
 
 
     const getCategories =()=>{
-        return axios.get("http://localhost:8080/get-categories")
+        return axios.get("http://localhost:8080/categories/get-categories")
     }
 
     useEffect(()=>{

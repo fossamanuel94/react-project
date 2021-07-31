@@ -3,9 +3,9 @@ import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { userContext } from "../App";
 import '../App.css'
-//import { isElementOfType } from "react-dom/test-utils";
 
 export default function Login() {
+
   const { setUserState } = useContext(userContext);
   const history = useHistory();
   const [userLog, setUserLog] = useState({
@@ -19,7 +19,7 @@ export default function Login() {
   const [alertState, setAlertState] = useState(true);
 
   const login = (user) => {
-    return axios.post("http://localhost:8080/login", {
+    return axios.post("http://localhost:8080/users/login", {
       user_email: user.user_email,
       user_pw: user.user_pw,
     });
@@ -100,7 +100,7 @@ export default function Login() {
         onFocus={() => setInputPwStyle(("input-form"),setAlertState(true))}
       />
       <button type="submit" className="btn-form">Login</button>
-      <a href="#">No estas registrado? Click aca!</a>
+      <a href="/sign-in">No estas registrado? Click aca!</a>
     </form>
   );
 

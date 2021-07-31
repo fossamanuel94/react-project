@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 
 export default function Post(props) {
 
-  const {post_image, id_post, post_title} = props.post;
+  const {post_image, id_post, post_title, post_subtitle} = props.post;
     
   return (
-    <div class="col-card">
+    <div className="col-card">
       <Link className="link" to={`/post/${id_post}`}>
-        <img class="img-card" src={post_image}/>
+        <img className="img-card" src={post_image}/>
       </Link>
       <Link className="link" to={`/post/${id_post}`}>  
-        <h3 class="title-card">{post_title}</h3>
+        <h3 className="title-card">{post_title}</h3>
       </Link>
-      <p class="subtitle-card">Con un tanto de Angel Di Maria, la Seleccion vencio a Brasil por 1-0 y se consagro tras 28 anios</p>
+      <p className="subtitle-card">{`${post_subtitle.substring(0, 70)}...`}</p>
     </div>
   );
 }

@@ -7,7 +7,7 @@ export default function PostsList() {
   const [posts, setPosts] = useState([]);
 
   const getPosts = () => {
-    return axios.get("http://localhost:8080/all-posts");
+    return axios.get("http://localhost:8080/posts/all-posts");
   };
 
   useEffect(() => {
@@ -21,8 +21,8 @@ export default function PostsList() {
   //console.log(posts)
 
   return (
-    <div class="container-card">
-      <div class="row-card">
+    <div className="container-card">
+      <div className="row-card">
           {posts.map((post) => {
           return (
               <Post key={post.id_post} post={post}></Post> 

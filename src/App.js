@@ -21,15 +21,7 @@ function App() {
   return (
     <userContext.Provider value={{userState, setUserState}}>
     <Router>
-      <div className="row">
-        <div className="col">
           <Navbar></Navbar>
-        </div>
-      </div>
-      <div className="row">
-      <div className="col">
-      <div className="jumbotron jumbotron-fluid bg-white">
-        <div className="container"> 
           <Switch>
             <Route path="/post/:id">
               <SelectedPost></SelectedPost>
@@ -50,13 +42,6 @@ function App() {
               <CategoriePostList></CategoriePostList>
             </Route>
           </Switch>
-        </div>
-      </div>
-      </div>
-      </div>
-      <div className="row">
-        <div className="col"></div>
-      </div>
     </Router>
     </userContext.Provider>
   );

@@ -8,7 +8,7 @@ export default function CategoriePostList() {
   const [posts, setPosts] = useState([]);
 
   const traerPostCat = () => {
-    return axios.get(`http://localhost:8080/categorie-post/${id}`);
+    return axios.get(`http://localhost:8080/categories/categorie-post/${id}`);
   };
 
   useEffect(() => {
@@ -20,8 +20,8 @@ export default function CategoriePostList() {
   }, [id]);
 
   return (
-    <div class="container-card">
-      <div class="row-card">
+    <div className="container-card">
+      <div className="row-card">
       {posts.map((post) => {
         return <Post key={post.id_post} post={post}></Post>;
       })}
