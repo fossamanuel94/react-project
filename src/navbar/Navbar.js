@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useContext } from "react";
-import {userContext} from './App'
+import {userContext} from '../App'
 import { Link } from "react-router-dom";
-import "./App.css"
-import listSB from "./sidebar/SideBarList";
+import "../App.css"
+import listSB from "./NavBarList";
 
 export default function Navbar() {
 

@@ -3,7 +3,6 @@ import React, { useEffect, useState} from "react";
 import { useParams, Link } from "react-router-dom";
 import ComentsList from "../comments/ComentsList";
 import AddComent from "../comments/AddComent";
-import Card from "../Card";
 import moment from "moment";
 import htmlParser from 'html-react-parser'
 import "../App.css";
@@ -50,6 +49,7 @@ export default function SelectedPost() {
       <h3 className="subtitle-post">{post_subtitle}</h3>
       <img
         src={post_image}
+        alt="..."
         className="img-post"
       />
       <div className="content-post">{htmlParser(`${post_desc}`)}</div>
@@ -63,35 +63,3 @@ export default function SelectedPost() {
   );
 }
 
-/* 
-<div className="row">
-<div className="col col-8">
-  <div className="row">
-    <div className="container  bg-light rounded border">
-      <h1><u>{post_title}</u></h1><br></br>
-      <h4>{post_subtitle}</h4>
-      <hr></hr>
-      <img src={post_image} alt="..." className="img-fluid"></img>
-      <hr></hr>
-      <div className="row justify-content-center border-right">
-        <p className="col col-3">{moment(post_date).format("l")}</p>
-        <p className="col col-3">{user_nickname}</p>
-        <p className="col col-3">{categorie}</p>
-      </div>
-      
-      <p>{post_desc}</p>
-    </div>
-  </div>
-  <div className="row mt-2">
-    <div className="container bg-light rounder border">
-      <h5>COMENTARIOS</h5>
-    </div>
-  </div>
-  <div className="row">
-      <div className="container  bg-light rounded border">
-          <ComentsList id={id}></ComentsList>
-          <AddComent id={id}></AddComent>
-      </div>
-  </div>
-</div>
-</div> */

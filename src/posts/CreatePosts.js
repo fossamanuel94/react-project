@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import CategorieSelect from "./CategorieSelect";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import parse from "html-react-parser";
 
 export default function Posts() {
   const [post, setPost] = useState({
@@ -151,50 +150,3 @@ export default function Posts() {
     </>
   );
 }
-
-/*  <div className="container jumbotron w-75 shadow p-3 mb-5 bg-white rounded border border-dark">
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="postTitle">Titulo</label>
-          <input
-            type="text"
-            className="form-control"
-            id="postTitle"
-            name="postTitle"
-            placeholder="Titulo"
-            value={post.postTitle}
-            onChange={(e) => setPost({ ...post, postTitle: e.target.value })}
-          ></input>
-        </div>
-        <div className="form-group">
-          <label>Categoria</label><br></br>
-            <CategorieSelect selectCateg={categorieSelect}></CategorieSelect>
-        </div>
-        <div className="form-group">
-          <label htmlFor="postImage">Imagen</label>
-          <input
-            type="text"
-            className="form-control"
-            id="postImage"
-            name="postImage"
-            placeholder="Imagen"
-            value={post.postImage}
-            onChange={(e) => setPost({ ...post, postImage: e.target.value })}
-          ></input>
-        </div>
-        <div className="form-group">
-          <label htmlFor="Descripcion"></label>
-          <textarea
-            className="form-control"
-            id="postDesc"
-            rows="7"
-            placeholder="Descripcion"
-            value={post.postDesc}
-            onChange={(e) => setPost({ ...post, postDesc: e.target.value })}
-          ></textarea>
-        </div>
-        <button type="submit" className="btn btn-outline-dark btn-block">
-          Crear Post
-        </button>
-      </form>
-    </div> */

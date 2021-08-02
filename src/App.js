@@ -1,12 +1,11 @@
 import "./App.css";
 import Login from "./users/Login";
-import Navbar from "./Navbar";
+import Navbar from "./navbar/Navbar";
 import Registro from "./users/Registro";
 import CreatePosts from "./posts/CreatePosts";
 import PostsList from "./posts/PostsList";
 import SelectedPost from "./posts/SelectedPost";
 import CategoriePostList from './posts/CategoriePostList'
-import SideBar from './sidebar/SideBar';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { createContext, useState } from 'react';

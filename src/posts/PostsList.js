@@ -33,9 +33,3 @@ export default function PostsList() {
       
   );
 }
-
-/*<ul className="list-group list-group-flush bg-light"></ul> */
-
-/*
-
-*/

@@ -246,6 +246,7 @@ hr {
 
 .comment-content {
   font-family: "Roboto Mono", monospace;
+  font-weight: bold;
   margin: 15px 0 50px 40px;
   word-wrap: break-word;
 }
@@ -451,14 +452,14 @@ hr {
 
 /*----------  MEDIA QUERYS  ----------*/
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1024px) {
   /*---- CARD ----*/
   .col-card {
     width: 45%;
   }
 
   .img-card {
-    height: 200px;
+    height: 230px;
   }
 
   /*---- TAGS ----*/
@@ -476,10 +477,10 @@ hr {
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 768px) {
   /*---- CARD ----*/
   .container-card {
-    width: 100%;
+    width: 85%;
   }
 
   .col-card {
@@ -487,24 +488,26 @@ hr {
   }
 
   .img-card {
-    height: 230px;
+    height: 330px;
   }
 
   .title-card {
     margin: 7px;
+    font-size: 40px;
   }
 
   .subtitle-card {
-    margin: 10px;
+    margin: 7px;
+    font-size: 14px;
   }
 
   /*---- LOGIN-REGISTER FORM ----*/
   .container-register {
-    width: 90%;
+    width: 95%;
   }
 
   .container-login {
-    width: 75%;
+    width: 95%;
   }
 
   .input-form {
@@ -532,7 +535,7 @@ hr {
     position: absolute;
     left: 0;
     top: 125px;
-    height: 700px;
+    height: 800px;
     width: 50%;
     background-color: #1d1f4c;
     flex-direction: column;
@@ -550,12 +553,14 @@ hr {
   }
 
   .nav-title {
-    margin-left: 30px;
-    font-size: 60px;
+    margin-left: -10px;
+    font-size: 70px;
   }
 
   .nav-button {
     display: flex;
+    width: 50px;
+    height: 50px;
     margin-top: 25px;
   }
 
@@ -566,7 +571,7 @@ hr {
   .nav-li {
     margin-left: 35px;
     margin-bottom: 15px;
-    font-size: 30px;
+    font-size: 35px;
   }
 
   .nav-user {
@@ -587,8 +592,8 @@ hr {
   }
 
   .comment-user-box {
-    border-top-left-radius: 100% 800%;
-    border-bottom-left-radius: 100% 800%;
+    border-top-left-radius: 100% 900%;
+    border-bottom-left-radius: 100% 900%;
   }
 
   .comment-content {
@@ -596,19 +601,332 @@ hr {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 425px) {
+  /*---- NAVBAR ----*/
+  #hidden {
+    top: 90px;
+  }
+
+  .m-navbar {
+    height: 100px;
+  }
+
+  .nav-button {
+    height: 37px;
+    width: 37px;
+    margin-top: 18px;
+  }
+
+  .nav-title {
+    font-size: 50px;
+  }
+
+  /*---- CARD ----*/
+  .container-card {
+    width: 100%;
+  }
+
+  .img-card {
+    height: 230px;
+  }
+
+  .title-card {
+    font-size: 38px;
+  }
+
+  .subtitle-card {
+    font-size: 13px;
+  }
+
+  /*---- POST ----*/
+  .container-post {
+    width: 100%;
+  }
+
+  .categorie-post {
+    font-size: 18px;
+  }
+
+  .title-post {
+    font-size: 40px;
+  }
+
+  .data-post {
+    font-size: 12px;
+  }
+
+  .subtitle-post {
+    font-size: 18px;
+  }
+
+  .img-post {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .content-post {
+    font-size: 14px;
+    line-height: 15px;
+    margin: 20px 10px 0 10px;
+  }
+
+  .content-post p {
+    font-size: 14px;
+  }
+
   /*---- COMMENTS ----*/
+  .comments-title {
+    font-size: 20px;
+    margin: 5px;
+  }
+
+  .comment-txt {
+    width: 100%;
+    height: 80px;
+    font-size: 14px;
+    margin-top: -25px;
+  }
+
+  .comment-btn {
+    height: 35px;
+    font-size: 16px;
+  }
+
   .comment-user-box {
+    height: 50px;
+    border-top-left-radius: 100% 700%;
+    border-bottom-left-radius: 100% 700%;
+  }
+
+  .comment-user-img {
+    width: 46px;
+    margin-top: -14px;
+    margin-left: -14px;
+  }
+
+  .comment-user-name {
+    margin-top: -32px;
+    margin-left: 40px;
+    font-size: 13px;
+  }
+
+  .comment-date {
+    margin-top: -32px;
+    font-size: 10px;
+  }
+
+  .comment-content {
+    margin: 5px 0 20px 40px;
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  /*---- NAVBAR ----*/
+  #hidden {
+    top: 80px;
+  }
+
+  .m-navbar {
+    height: 85px;
+  }
+
+  .nav-button {
+    height: 33px;
+    width: 33px;
+    margin-top: 16px;
+  }
+
+  .nav-title {
+    font-size: 45px;
+  }
+
+  .nav-li {
+    margin-left: 28px;
+    margin-bottom: 15px;
+    font-size: 25px;
+  }
+
+  .nav-user {
+    margin-left: 28px;
+    margin-bottom: 15px;
+    font-size: 25px;
+  }
+
+  /*---- CARD ----*/
+  .img-card {
+    height: 210px;
+  }
+
+  .title-card {
+    font-size: 35px;
+  }
+
+  /*---- POST ----*/
+  .categorie-post {
+    font-size: 18px;
+  }
+
+  .title-post {
+    font-size: 40px;
+  }
+
+  .data-post {
+    font-size: 12px;
+  }
+
+  .subtitle-post {
+    font-size: 18px;
+  }
+
+  .content-post {
+    font-size: 13px;
+    line-height: 15px;
+    margin: 20px 10px 0 10px;
+  }
+
+  .content-post p {
+    font-size: 13px;
+  }
+
+  /*---- COMMENTS ----*/
+  .comments-title {
+    font-size: 20px;
+    margin: 5px;
+  }
+
+  .comment-txt {
+    width: 100%;
+    height: 60px;
+    font-size: 12px;
+    margin-top: -25px;
+  }
+
+  .comment-btn {
+    height: 30px;
+    font-size: 15px;
+  }
+
+  .comment-user-box {
+    height: 50px;
+    border-top-left-radius: 100% 670%;
+    border-bottom-left-radius: 100% 670%;
+  }
+
+  .comment-user-img {
+    width: 46px;
+    margin-top: -14px;
+    margin-left: -14px;
+  }
+
+  .comment-user-name {
+    margin-top: -32px;
+    margin-left: 40px;
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  /*---- NAVBAR ----*/
+  #hidden {
+    top: 80px;
+  }
+
+  .m-navbar {
+    height: 80px;
+  }
+
+  .nav-button {
+    height: 30px;
+    width: 30px;
+    margin-left: 10px;
+    margin-top: 13px;
+  }
+
+  .nav-title {
+    font-size: 40px;
+  }
+
+  .nav-li {
+    margin-left: 28px;
+    margin-bottom: 15px;
+    font-size: 25px;
+  }
+
+  .nav-user {
+    margin-left: 28px;
+    margin-bottom: 15px;
+    font-size: 25px;
+  }
+
+  /*---- CARD ----*/
+  .img-card {
+    height: 180px;
+  }
+
+  .title-card {
+    font-size: 30px;
+  }
+
+  /*---- POST ----*/
+  .categorie-post {
+    font-size: 15px;
+  }
+
+  .title-post {
+    font-size: 35px;
+  }
+
+  .data-post {
+    font-size: 12px;
+  }
+
+  .subtitle-post {
+    font-size: 18px;
+  }
+
+  .content-post {
+    font-size: 12px;
+    line-height: 15px;
+    margin: 20px 10px 0 10px;
+  }
+
+  .content-post p {
+    font-size: 12px;
+  }
+
+  /*---- COMMENTS ----*/
+  .comments-title {
+    font-size: 20px;
+    margin: 5px;
+  }
+
+  .comment-txt {
+    width: 100%;
+    height: 60px;
+    font-size: 12px;
+    margin-top: -25px;
+  }
+
+  .comment-btn {
+    height: 30px;
+    font-size: 15px;
+  }
+
+  .comment-user-box {
+    height: 50px;
     border-top-left-radius: 100% 600%;
     border-bottom-left-radius: 100% 600%;
   }
 
-  /*---- LOGIN-REGISTER FORM ----*/
-  .container-register {
-    width: 90%;
+  .comment-user-img {
+    width: 45px;
   }
 
-  .container-login {
-    width: 90%;
+  .comment-user-name {
+    margin-top: -32px;
+    margin-left: 40px;
+    font-size: 13px;
   }
 }
