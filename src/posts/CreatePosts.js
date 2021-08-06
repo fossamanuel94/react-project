@@ -1,10 +1,13 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import {useHistory} from 'react-router-dom';
 import CategorieSelect from "./CategorieSelect";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
-export default function Posts() {
+export default function Posts() 
+{
+  const history = useHistory()
   const [post, setPost] = useState({
     postDesc: "",
     postTitle: "",
@@ -12,6 +15,7 @@ export default function Posts() {
     postImage: "",
     postCateg: 1,
   });
+
 
   const [alertState, setAlertState] = useState(true)
 
@@ -78,12 +82,17 @@ export default function Posts() {
           data.token = newToken.data.tokenA;
           const newResult = await createPost(data);
           console.log(newResult);
+          
         } else {
           console.log("Token Activo");
         }
       }
     }
   };
+
+  /* useEffect(()=>{
+    if(sessionStorage.getItem("Tokens") === null) history.push("/")
+  },[]); */
 
   useEffect(() => {
     if (post.postCateg === undefined) {
@@ -97,7 +106,7 @@ export default function Posts() {
       <form className="container-create-post" onSubmit={handleSubmit}>
         {!alertState ? (
           <div
-            className="alert-form"
+            className="alert-error"
           >Complete los campos
           </div>
         ) : null}

@@ -1,22 +1,27 @@
 import React, { useEffect, useState, useContext } from "react";
 import {userContext} from '../App'
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "../App.css"
 import listSB from "./NavBarList";
 
 export default function Navbar() {
 
+  const history = useHistory()
   const {userState, setUserState} = useContext(userContext)
   const [name, setName] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false)
   const [buttonState, setButtonState] = useState(false)
 
   useEffect(()=>{
     const nameSession = sessionStorage.getItem("Name");
-    if(nameSession === null){
+    const typeSession = JSON.parse(sessionStorage.getItem("Type"))
+
+    if(nameSession === null && typeSession === null){
       setUserState(false)
     }else{
       setUserState(true)
       setName(JSON.parse(nameSession));
+      if(typeSession === 1) setIsAdmin(true)
     }
 
   },[userState])
@@ -24,8 +29,11 @@ export default function Navbar() {
   const logOut = (e) => {
     e.preventDefault();
     sessionStorage.removeItem("Name");
+    sessionStorage.removeItem("Type")
     sessionStorage.removeItem("Tokens");
     setUserState(false);
+    setIsAdmin(false);
+    history.push("/")
   };
 
 
@@ -69,7 +77,14 @@ export default function Navbar() {
                   ) : (
                     <>
                       <li className="nav-user" onClick={logOut}>Logout</li>
-                      <li className="nav-user">{name}</li>
+                      {isAdmin ? (
+                        <Link to={`/new-post`}>
+                          <li className="nav-user">{name}</li>
+                        </Link>
+                      ): (
+                        <li className="nav-user">{name}</li>
+                      )
+                      } 
                     </>
                   )
                 }
@@ -78,61 +93,3 @@ export default function Navbar() {
     </div>
   );
 }
-
-/*    
-
-    <div>
-      <nav className="navbar navbar-dark bg-dark">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="http://localhost:3000">
-            Pelados
-          </a>
-          <ul className="nav navbar-nav">
-            <li className="nav-item">
-              {userState ? (
-                <Link to="/new-post">
-                  <button className="btn btn-success ml-auto" type="submit">
-                    + Crear Post
-                  </button>
-                </Link>
-              ) : null}
-            </li>
-          </ul>
-          <ul className="nav navbar-nav navbar-right">
-            <li className="nav-item">
-              {!userState ? (
-                <Link to="/login">
-                  <button className="btn btn-success ml-auto" type="submit">
-                    Iniciar Sesion
-                  </button>
-                </Link>
-              ) : (
-                <button
-                  className="btn btn-success ml-auto"
-                  type="submit"
-                  onClick={logOut}
-                >
-                  Cerrar Sesion
-                </button>
-              )}
-              {!userState ? (
-                <Link to="/sign-in">
-                  <button
-                    className="btn btn-sm btn-primary ml-auto"
-                    type="submit"
-                  >
-                    Registrate
-                  </button>
-                </Link>
-              ) : (
-                <button className="btn btn-sm btn-outline-light" type="submit">
-                  {name}
-                </button>
-              )}
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-
-    */

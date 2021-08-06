@@ -224,9 +224,10 @@ hr {
 
 .comment-user-img {
   width: 59px;
+  height: 59px;
   border-radius: 50%;
   margin-top: -13px;
-  margin-left: -13px;
+  margin-left: -14px;
 }
 
 .comment-user-name {
@@ -398,7 +399,7 @@ hr {
   box-shadow: 0 0 10px rgb(3, 167, 3);
 }
 
-.alert-form {
+.alert-error {
   width: 90%;
   height: 60px;
   padding-top: 20px;
@@ -701,6 +702,7 @@ hr {
 
   .comment-user-img {
     width: 46px;
+    height: 46px;
     margin-top: -14px;
     margin-left: -14px;
   }
@@ -816,6 +818,7 @@ hr {
 
   .comment-user-img {
     width: 46px;
+    width: 46px;
     margin-top: -14px;
     margin-left: -14px;
   }
@@ -921,7 +924,8 @@ hr {
   }
 
   .comment-user-img {
-    width: 45px;
+    width: 46px;
+    height: 46px;
   }
 
   .comment-user-name {

@@ -10,12 +10,14 @@ export default function Registro() {
         user_email:"",
         user_password:"",
         user_nickname:"",
+        user_image:"",
         user_passwordConf:""
     });
 
     const [phName,setPhName] = useState("Nombre")
     const [phNick,setPhNick] = useState("Nickname")
     const [phEmail,setPhEmail] = useState("Email")
+    const [phImage, setPhImage] = useState("Image (URL)")
     const [phPass,setPhPass] = useState("Contraseña")
     const [phPassConf,setPhPassCongf] = useState("Repetir Contraseña")
     const [nameStyle, setNameStyle] = useState("input-form")
@@ -23,6 +25,7 @@ export default function Registro() {
     const [passConfStyle, setPassConfStyle] = useState("input-form")
     const [emailStyle, setEmailStyle] = useState("input-form")
     const [nickStyle, setNickStyle] = useState("input-form")
+    const [imageStyle, setImageStyle] = useState("input-form")
 
     const handleSubmit = async(e)=>{
         e.preventDefault();
@@ -46,6 +49,10 @@ export default function Registro() {
           setPassConfStyle("input-form invalid")
           setPhPassCongf("Complete el campo")
         }
+        if(user.user_image===""){
+          setImageStyle("input-form invalid")
+          setPhImage("Complete el campo")
+        }
         else{
           console.log(user)
           const result = await postUser(user)
@@ -55,7 +62,7 @@ export default function Registro() {
     }
 
     const postUser = (data) =>{
-      const {user_name, user_email, user_password, user_nickname} = data
+      const {user_name, user_email, user_password, user_nickname, user_image} = data
       return axios({
         method:'post',
         url:'http://localhost:8080/users/add-user',
@@ -63,7 +70,8 @@ export default function Registro() {
             user_name,
             user_email,
             user_password,
-            user_nickname
+            user_nickname,
+            user_image
         }
       })
     }
@@ -134,6 +142,14 @@ export default function Registro() {
           onChange={(e)=> setUser({...user, user_email:e.target.value})}
           onBlur={(e)=> handleBlurEmail(e.target.value)}
           onFocus={()=>setEmailStyle("input-form")}
+        />
+        <input
+          type="text"
+          className={imageStyle}
+          placeholder={phImage}
+          value={user.user_image}
+          onChange={(e)=> setUser({...user, user_image:e.target.value})}
+          onFocus={()=>setImageStyle("input-form")}
         />
         <input 
           type="password" 

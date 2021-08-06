@@ -58,6 +58,7 @@ export default function Login() {
         //alert("Bienvenido " + result.data.name);
         sessionStorage.setItem("Tokens", JSON.stringify(result.data.tokens));
         sessionStorage.setItem("Name", JSON.stringify(result.data.name));
+        sessionStorage.setItem("Type", JSON.stringify(result.data.type));
         setUserLog({
           user_email: "",
           user_pw: "",
@@ -75,7 +76,7 @@ export default function Login() {
       <p className="title-form">Login</p>
       {!alertState ? (
           <div
-            className="alert-form"
+            className="alert-error"
           >Email o Contrasena incorrecto
           </div>
         ) : null}

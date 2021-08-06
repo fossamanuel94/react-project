@@ -17,11 +17,11 @@ export default function ComentsList({id}) {
     return (
         <>
             {comments.map(eachComment=>{
-                const {id_comment, user_nickname, comment_date, comment} = eachComment
+                const {id_comment, user_nickname, comment_date, comment, user_image} = eachComment
                 return(
                     <div className="comment-container" key={id_comment}>
                         <div className="comment-user-box">
-                            <img className="comment-user-img" alt="..." src="https://images.assetsdelivery.com/thumbnails/thesomeday123/thesomeday1231709/thesomeday123170900021.jpg"/>
+                            <img className="comment-user-img" alt="..." src={user_image ? user_image : "https://images.assetsdelivery.com/thumbnails/thesomeday123/thesomeday1231709/thesomeday123170900021.jpg"}/>
                             <p className="comment-user-name">{user_nickname}</p>
                             <p className="comment-date">{moment(comment_date).format('l')}</p>
                         </div>

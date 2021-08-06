@@ -20,7 +20,7 @@ export default function AddComent({id}) {
       )
     }
 
-    const TokenFunction = (tokenR) => {
+    const refreshTokenFunction = (tokenR) => {
       return axios.post("http://localhost:8080/jwt/token", { token: tokenR });
     };
 
@@ -34,13 +34,14 @@ export default function AddComent({id}) {
       if(comment!==""){
         const result = await sendComment(parsedTokens.tokenA)
         if(result.data.message === "jwt expired"){
-          const newToken = await TokenFunction(parsedTokens.tokenR);
+          const newToken = await refreshTokenFunction(parsedTokens.tokenR);
           const newResult = await sendComment(newToken.data.tokenA)
           console.log(newResult)
         }    
       }else{
         console.log("Completar el campo")
       }  
+      window.location.reload();
       setComment("")
     }
 
@@ -52,7 +53,7 @@ export default function AddComent({id}) {
         value={comment}
         onChange={(e) => setComment(e.target.value)}
         ></textarea>
-        <button type="submit" className="comment-btn">Comentar</button>
+        <button type="submit" className="comment-btn" disabled={!userState}>Comentar</button>
     </form>
   );
 }
