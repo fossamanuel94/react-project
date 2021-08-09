@@ -9,7 +9,7 @@ export default function AddComent({id}) {
     const [comment, setComment] = useState("");
 
     const sendComment = (token) =>{
-      return axios.post("http://localhost:8080/comments/add-comment",
+      return axios.post("https://manuelfossa-nodejs.herokuapp.com/comments/add-comment",
       {
         id_post: id,
         comment: comment
@@ -21,7 +21,7 @@ export default function AddComent({id}) {
     }
 
     const refreshTokenFunction = (tokenR) => {
-      return axios.post("http://localhost:8080/jwt/token", { token: tokenR });
+      return axios.post("https://manuelfossa-nodejs.herokuapp.com/jwt/token", { token: tokenR });
     };
 
     const commentSubmit = async (e)=>{
@@ -29,17 +29,17 @@ export default function AddComent({id}) {
       const tokens = sessionStorage.getItem("Tokens");
       const parsedTokens = JSON.parse(tokens);
       if(!userState){
-        console.log("Inicie Sesion para comentar")
+        //console.log("Inicie Sesion para comentar")
       } 
       if(comment!==""){
         const result = await sendComment(parsedTokens.tokenA)
         if(result.data.message === "jwt expired"){
           const newToken = await refreshTokenFunction(parsedTokens.tokenR);
           const newResult = await sendComment(newToken.data.tokenA)
-          console.log(newResult)
+          //console.log(newResult)
         }    
       }else{
-        console.log("Completar el campo")
+        //console.log("Completar el campo")
       }  
       window.location.reload();
       setComment("")

@@ -8,7 +8,7 @@ export default function CategoriePostList() {
   const [posts, setPosts] = useState([]);
 
   const traerPostCat = () => {
-    return axios.get(`http://localhost:8080/categories/categorie-post/${id}`);
+    return axios.get(`https://manuelfossa-nodejs.herokuapp.com/categories/categorie-post/${id}`);
   };
 
   useEffect(() => {

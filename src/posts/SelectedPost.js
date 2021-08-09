@@ -23,7 +23,7 @@ export default function SelectedPost() {
   } = post;
 
   const ReturnPost = (id) => {
-    return axios.get(`http://localhost:8080/posts/post/${id}`);
+    return axios.get(`https://manuelfossa-nodejs.herokuapp.com/posts/post/${id}`);
   };
 
   useEffect(() => {

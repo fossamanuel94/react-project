@@ -19,7 +19,7 @@ export default function Login() {
   const [alertState, setAlertState] = useState(true);
 
   const login = (user) => {
-    return axios.post("http://localhost:8080/users/login", {
+    return axios.post("https://manuelfossa-nodejs.herokuapp.com/users/login", {
       user_email: user.user_email,
       user_pw: user.user_pw,
     });
@@ -44,17 +44,17 @@ export default function Login() {
       if (result.status !== 200) {
         setAlertState(false);
         if (result.data.message === "Email inexistente") {
-          console.log(result.data.message);
+          //console.log(result.data.message);
           setUserLog({
             user_email: "",
             user_pw: "",
           });
         } else {
-          console.log(result.data.message);
+          //console.log(result.data.message);
           setUserLog({ ...userLog, user_pw: "" });
         }
       } else {
-        console.log(result.data);
+        //console.log(result.data);
         //alert("Bienvenido " + result.data.name);
         sessionStorage.setItem("Tokens", JSON.stringify(result.data.tokens));
         sessionStorage.setItem("Name", JSON.stringify(result.data.name));
@@ -65,7 +65,7 @@ export default function Login() {
         });
         setUserState(true);
         const sessionTokens = sessionStorage.getItem("Tokens");
-        console.log(JSON.parse(sessionTokens));
+        //console.log(JSON.parse(sessionTokens));
         history.push("/");
       }
     }

@@ -7,11 +7,11 @@ export default function PostsList() {
   const [posts, setPosts] = useState([]);
 
   const getPosts = () => {
-    return axios.get("http://localhost:8080/posts/all-posts");
+    return axios.get("https://manuelfossa-nodejs.herokuapp.com/posts/all-posts");
   };
 
   useEffect(() => {
-    console.log("Funcionando");
+    //console.log("Funcionando");
     const allPosts = getPosts();
     allPosts.then((res) => {
       setPosts(res.data.result);

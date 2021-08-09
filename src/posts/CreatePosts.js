@@ -31,7 +31,7 @@ export default function Posts()
   const createPost = (data) => {
     const { post_title, post_image, post_desc, post_categ, post_subtitle } = data.postSended;
     return axios.post(
-      "http://localhost:8080/posts/add-post",
+      "https://manuelfossa-nodejs.herokuapp.com/posts/add-post",
       {
         post_desc,
         post_title,
@@ -48,7 +48,7 @@ export default function Posts()
   };
 
   const TokenFunction = (tokenR) => {
-    return axios.post("http://localhost:8080/jwt/token", { token: tokenR });
+    return axios.post("https://manuelfossa-nodejs.herokuapp.com/jwt/token", { token: tokenR });
   };
 
   const handleSubmit = async (e) => {
@@ -72,19 +72,19 @@ export default function Posts()
       };
 
       if (sessionStorage.getItem("Tokens") === null) {
-        console.log("Inicie Sesion");
+        //console.log("Inicie Sesion");
       } else {
         const result = await createPost(data);
-        console.log(result);
+        //console.log(result);
         if (result.data.message === "jwt expired") {
           const newToken = await TokenFunction(parsedTokens.tokenR);
-          console.log(newToken.data.tokenA);
+          //console.log(newToken.data.tokenA);
           data.token = newToken.data.tokenA;
           const newResult = await createPost(data);
-          console.log(newResult);
+          //console.log(newResult);
           
         } else {
-          console.log("Token Activo");
+          //console.log("Token Activo");
         }
       }
     }

@@ -54,7 +54,7 @@ export default function Registro() {
           setPhImage("Complete el campo")
         }
         else{
-          console.log(user)
+          //console.log(user)
           const result = await postUser(user)
           alert(result.data)
           history.push("/")
@@ -65,7 +65,7 @@ export default function Registro() {
       const {user_name, user_email, user_password, user_nickname, user_image} = data
       return axios({
         method:'post',
-        url:'http://localhost:8080/users/add-user',
+        url:'https://manuelfossa-nodejs.herokuapp.com/users/add-user',
         data:{
             user_name,
             user_email,
@@ -90,9 +90,9 @@ export default function Registro() {
       //console.log(email)
       if(email!==""){
       const res = await axios.get(
-        `http://localhost:8080/users/email-validation/${email}`
+        `https://manuelfossa-nodejs.herokuapp.com/users/email-validation/${email}`
       )
-      console.log(res.data)
+      //console.log(res.data)
       if(res.data===""){
         setEmailStyle("input-form valid")
       }
@@ -104,9 +104,9 @@ export default function Registro() {
       //console.log(email)
       if(nick!==""){
       const res = await axios.get(
-        `http://localhost:8080/users/nick-validation/${nick}`
+        `https://manuelfossa-nodejs.herokuapp.com/users/nick-validation/${nick}`
       )
-      console.log(res.data)
+      //console.log(res.data)
       if(res.data===""){
         setNickStyle("input-form valid")
       }

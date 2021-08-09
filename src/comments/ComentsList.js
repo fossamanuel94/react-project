@@ -8,7 +8,7 @@ export default function ComentsList({id}) {
     const[comments, setComments]=useState([])
 
     useEffect(()=>{
-        const res = axios(`http://localhost:8080/comments/${id}`)
+        const res = axios(`https://manuelfossa-nodejs.herokuapp.com/comments/${id}`)
         res.then(result=>{
             setComments(result.data.result)
         })
