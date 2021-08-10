@@ -22,22 +22,22 @@ function App() {
     <Router>
           <Navbar></Navbar>
           <Switch>
-            <Route path="post/:id">
+            <Route path="/post/:id">
               <SelectedPost></SelectedPost>
             </Route>
-            <Route exact path="">
+            <Route exact path="/">
               <PostsList></PostsList>
             </Route>
-            <Route path="sign-in">
+            <Route path="/sign-in">
               <Registro></Registro>
             </Route>
-            <Route path="login">
+            <Route path="/login">
               <Login></Login>
             </Route>
-            <Route path="new-post">
+            <Route path="/new-post">
               <CreatePosts></CreatePosts>
             </Route>
-            <Route path="categorie-post/:id">
+            <Route path="/categorie-post/:id">
               <CategoriePostList></CategoriePostList>
             </Route>
           </Switch>
