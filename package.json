@@ -2,7 +2,7 @@
   "name": "pelados_front",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://fossamanuel94.github.io/react-project",
+  "homepage": "https://fossamanuel94.github.io/react-project/",
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^29.0.0",
     "@ckeditor/ckeditor5-react": "^3.0.2",
