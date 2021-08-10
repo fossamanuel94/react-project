@@ -22,22 +22,22 @@ function App() {
     <Router>
           <Navbar></Navbar>
           <Switch>
-            <Route path="react-project/post/:id">
+            <Route path="post/:id">
               <SelectedPost></SelectedPost>
             </Route>
-            <Route exact path="react-project/">
+            <Route exact path="">
               <PostsList></PostsList>
             </Route>
-            <Route path="react-project/sign-in">
+            <Route path="sign-in">
               <Registro></Registro>
             </Route>
-            <Route path="react-project/login">
+            <Route path="login">
               <Login></Login>
             </Route>
-            <Route path="react-project/new-post">
+            <Route path="new-post">
               <CreatePosts></CreatePosts>
             </Route>
-            <Route path="react-project/categorie-post/:id">
+            <Route path="categorie-post/:id">
               <CategoriePostList></CategoriePostList>
             </Route>
           </Switch>
