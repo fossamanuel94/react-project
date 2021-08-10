@@ -19,7 +19,7 @@ function App() {
 
   return (
     <userContext.Provider value={{userState, setUserState}}>
-    <Router>
+    <Router basename="/react-project">
           <Navbar></Navbar>
           <Switch>
             <Route path="/post/:id">
