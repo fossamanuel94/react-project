@@ -45,7 +45,7 @@ export default function Navbar() {
               <button 
                 className="nav-button" 
                 onClick={()=>{setButtonState(!buttonState)}}/>
-              <Link className="nav-title" to="/">PELADOS</Link>
+              <Link className="nav-title" to="/">TECHNEWS</Link>
             </div>
             <ul className="nav-ul" id={!buttonState ? "" : "hidden"}>  
                 {listSB.map(categorie=>{

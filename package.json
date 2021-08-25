@@ -2,7 +2,7 @@
   "name": "pelados_front",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://optimistic-roentgen-592ffd.netlify.app",
+  "homepage": "https://technews24.netlify.app",
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^29.0.0",
     "@ckeditor/ckeditor5-react": "^3.0.2",
@@ -48,3 +48,4 @@
     ]
   }
 }
+
