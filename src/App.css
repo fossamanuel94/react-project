@@ -615,12 +615,12 @@ hr {
   .nav-button {
     height: 37px;
     width: 37px;
-    margin-top: 18px;
+    margin-top: 14px;
     margin-left: -3px;
   }
 
   .nav-title {
-    font-size: 50px;
+    font-size: 45px;
   }
 
   /*---- CARD ----*/
@@ -845,8 +845,7 @@ hr {
   .nav-button {
     height: 30px;
     width: 30px;
-    margin-left: 10px;
-    margin-top: 11px;
+    margin-top: 10px;
   }
 
   .nav-title {
