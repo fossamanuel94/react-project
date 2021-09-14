@@ -81,12 +81,7 @@ hr {
 
 .nav-button {
   display: none;
-  background-color: rgb(88, 179, 148);
-  width: 40px;
-  height: 35px;
-  margin: 0 auto;
-  border: 0;
-  border-radius: 10px;
+  color: rgb(88, 179, 148);
 }
 
 .nav-button:hover {
@@ -613,14 +608,15 @@ hr {
   }
 
   .nav-button {
-    height: 37px;
-    width: 37px;
-    margin-top: 14px;
+    height: 50px;
+    width: 50px;
+    margin-top: 7px;
     margin-left: -3px;
   }
 
   .nav-title {
     font-size: 45px;
+    margin-left: 20px;
   }
 
   /*---- CARD ----*/
@@ -736,9 +732,9 @@ hr {
   }
 
   .nav-button {
-    height: 33px;
-    width: 33px;
-    margin-top: 14px;
+    height: 45px;
+    width: 45px;
+    margin-top: 9px;
     margin-left: -3px;
   }
 
@@ -843,9 +839,9 @@ hr {
   }
 
   .nav-button {
-    height: 30px;
-    width: 30px;
-    margin-top: 10px;
+    height: 35px;
+    width: 35px;
+    margin-top: 8px;
   }
 
   .nav-title {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import {userContext} from '../App'
 import { Link, useHistory } from "react-router-dom";
+import {CgMenu} from 'react-icons/cg'
 import "../App.css"
 import listSB from "./NavBarList";
 
@@ -42,9 +43,10 @@ export default function Navbar() {
     <div className="m-navbar">
         <div className="container-nav">
             <div className="container-title">
-              <button 
+              <CgMenu className="nav-button" onClick={()=>{setButtonState(!buttonState)}}></CgMenu>
+              {/* <button 
                 className="nav-button" 
-                onClick={()=>{setButtonState(!buttonState)}}/>
+                onClick={()=>{setButtonState(!buttonState)}}/> */}
               <Link className="nav-title" to="/">TECHNEWS</Link>
             </div>
             <ul className="nav-ul" id={!buttonState ? "" : "hidden"}>  
